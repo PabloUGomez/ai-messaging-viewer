@@ -22,7 +22,7 @@ const useFetchMessages = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await axios.get('api/messages_json');
+        const response = await axios.get('/api/messages');
         setMessages(response.data);
       } catch (error) {
         setError(`Failed to load messages. ${error}`);
