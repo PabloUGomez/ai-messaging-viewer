@@ -9,8 +9,8 @@ const MessageViewer: React.FC = () => {
   const { messages, loading, error } = useFetchMessages();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  //if (loading) return <Loader />;
-  //if (error) return <ErrorMessage message={error} />;
+  if (loading) return null //<Loader />;
+  if (error) return null //<ErrorMessage message={error} />;
 
   const groupedMessages = groupMessagesByDate(messages);
 
