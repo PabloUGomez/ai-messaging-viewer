@@ -2,7 +2,7 @@
     "redirects": [
       {
         "source": "/api/(.*)",
-        "destination": "http://www.backup-backend.readychatai.com/",
+        "destination": "http://www.backup-backend.readychatai.com/messages_json",
         "permanent": false
       }
     ]
