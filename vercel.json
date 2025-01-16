@@ -1,0 +1,10 @@
+{
+    "redirects": [
+      {
+        "source": "/api/(.*)",
+        "destination": "http://www.backup-backend.readychatai.com/$1",
+        "permanent": false
+      }
+    ]
+  }
+  
