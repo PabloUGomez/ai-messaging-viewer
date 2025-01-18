@@ -69,7 +69,7 @@ Cada mensaje tiene las siguientes propiedades:
 
 1. Clona este repositorio en tu máquina local:
     ```bash
-    git clone https://github.com/tu-usuario/ai-messaging-viewer.git
+    git clone https://github.com/PabloUGomez/ai-messaging-viewer.git
     ```
 2. Accede al directorio del proyecto:
     ```bash
