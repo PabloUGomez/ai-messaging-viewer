@@ -2,6 +2,9 @@
 
 Este proyecto permite visualizar y agrupar mensajes en conversaciones, asegurando que se procesen de manera cronológica y correctamente agrupados.
 
+### Nota sobre la prueba de fechas específicas:
+Para probar fechas específicas, debes cambiar el valor por defecto de `const now = new Date('2024-03-13T09:51:13Z')` que se encuentra en la línea 21 del archivo `MessageViewer.tsx`. Modifica esta fecha según el caso que desees probar.
+
 ## Supuestos realizados
 
 ### Orden de los mensajes:
