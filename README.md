@@ -1,78 +1,69 @@
-Front End Intern Examination Project
-Overview
+# ai-messaging-viewer
 
-We are building an AI messaging platform and need to assess your ability to create intuitive, performant interfaces for displaying message histories. This assessment will evaluate your skills in React, UI/UX design, and frontend development best practices.
+Este proyecto permite visualizar y agrupar mensajes en conversaciones, asegurando que se procesen de manera cronológica y correctamente agrupados.
 
-Task
+## Supuestos realizados
 
-Create a message viewer interface that displays conversation histories between users and AI. The data will be provided via a REST GET endpoint http://www.backup-backend.readychatai.com/messages_json. Your implementation should focus on both functionality and visual design.
+### Orden de los mensajes:
+- Se supone que los mensajes deben procesarse en orden cronológico según el campo `id`. 
+- Si el orden no está garantizado en los datos de entrada, los mensajes se ordenan antes de ser agrupados.
 
-Core Requirements
+### Estructura de los mensajes:
+Cada mensaje tiene las siguientes propiedades:
+- `id`: Identificador único del mensaje (tipo `string`).
+- `content`: Contenido del mensaje (tipo `string`).
+- `reply_to_id`: Identificador del mensaje al que responde (tipo `string | null`).
 
-Message Display & Organization
+### Conversaciones aisladas:
+- Un mensaje con `reply_to_id` que no coincide con ningún `id` previo marca el inicio de una nueva conversación.
 
-Group messages by date (Today, Yesterday, This Week, and earlier dates)
+## Lista de características implementadas
 
-Display messages with clear visual distinction between AI and user messages
+### Agrupación por conversaciones:
+- Los mensajes se agrupan en arrays separados según las respuestas (o falta de ellas).
 
-Show timestamps in an easily readable format
+### Gestión de múltiples conversaciones:
+- Soporte para múltiples hilos de conversación dentro de la misma lista de mensajes.
 
-Implement proper message threading and conversation flow
+### Orden cronológico:
+- Asegura que las conversaciones estén en orden cronológico basado en los identificadores de mensaje.
 
-UI/UX Requirements
+### Soporte para mensajes huérfanos:
+- Si un mensaje tiene un `reply_to_id` que no coincide con ningún mensaje previo, se trata como el inicio de una nueva conversación.
 
-Create a responsive design that works well on mobile, tablet, and desktop views
+## Decisiones técnicas y sus justificaciones
 
-Add a "jump to bottom" button when scrolling through history
+### Uso de TypeScript:
+- TypeScript proporciona un fuerte tipado que mejora la claridad del código y reduce errores relacionados con tipos.
 
-Create sticky date headers that remain visible while scrolling through message groups
+### Ordenación de mensajes:
+- Se ordenan los mensajes para garantizar un procesamiento predecible, lo que simplifica el algoritmo de agrupación.
 
-Technical Requirements
+### Estructura de salida:
+- Se devuelve un array de arrays (`Message[][]`), que es fácil de interpretar y utilizar en cualquier lógica de presentación.
 
-Use React with TypeScript
+### Uso de arrays para almacenamiento temporal:
+- Al usar arrays para manejar conversaciones y mensajes, se garantiza un rendimiento adecuado y una implementación sencilla.
 
-Implement proper loading states and error handling
+## Limitaciones conocidas o áreas de mejora
 
-Ensure smooth scrolling and transitions between message groups
+### Eficiencia en grandes volúmenes de datos:
+- Actualmente, el algoritmo utiliza una búsqueda lineal para encontrar el mensaje al que se está respondiendo. Esto puede volverse ineficiente con un gran número de mensajes. Se podría optimizar utilizando un mapa (`Map`) para accesos más rápidos.
 
-Bonus Features (Optional)
+### Gestión de mensajes fuera de orden:
+- Si los mensajes no están correctamente ordenados por su `id`, el resultado puede ser inconsistente. Mejoras futuras podrían incluir la validación o el manejo de datos desordenados.
 
-Keyboard navigation between messages
+### Soporte para hilos más complejos:
+- La lógica actual asume que cada mensaje solo pertenece a un hilo lineal. Conversaciones más complejas con respuestas anidadas podrían requerir un modelo jerárquico en lugar de uno lineal.
 
-Message search functionality
+### Validación de entrada:
+- Actualmente, no se realizan validaciones extensas en los datos de entrada. Se podrían agregar validaciones para garantizar que los mensajes tienen los campos requeridos y que sus valores son válidos.
 
-Message selection with copy functionality
+### Soporte para otros criterios de ordenación:
+- Actualmente, los mensajes se ordenan solo por `id`. Se podría ampliar para soportar ordenación por marca de tiempo u otros campos.
 
-Accessibility features (ARIA labels, keyboard navigation)
+## Instalación
 
-Evaluation Criteria
-
-Your submission will be evaluated based on:
-
-Code organization and best practices
-
-Visual design and attention to detail
-
-Performance and optimization
-
-Implementation of responsive design
-
-Error handling and edge cases
-
-Documentation quality
-
-Submission Guidelines
-
-Provide your code through a GitHub repository or zip file
-
-Include a README with:
-
-Setup instructions
-
-Any assumptions made
-
-List of implemented features
-
-Technical decisions and their rationale
-
-Known limitations or areas for improvement
+1. Clona este repositorio en tu máquina local:
+   ```bash
+   git clone https://github.com/tu-usuario/ai-messaging-viewer.git
