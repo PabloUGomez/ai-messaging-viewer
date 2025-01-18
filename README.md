@@ -31,10 +31,13 @@ Cada mensaje tiene las siguientes propiedades:
 ### Soporte para mensajes huérfanos:
 - Si un mensaje tiene un `reply_to_id` que no coincide con ningún mensaje previo, se trata como el inicio de una nueva conversación.
 
-## Decisiones técnicas y sus justificaciones
+### Funcionalidad de copiar al portapapeles:
+- Los usuarios pueden copiar el contenido de cualquier mensaje al portapapeles utilizando un botón de "copiar" que aparece al hacer hover sobre el mensaje.
+  
+  La funcionalidad de copiar se gestiona mediante un ícono (CopyIcon) que se muestra solo cuando el cursor se encuentra sobre el mensaje. Al hacer clic en el ícono, el mensaje se copia al portapapeles.
 
-### Uso de TypeScript:
-- TypeScript proporciona un fuerte tipado que mejora la claridad del código y reduce errores relacionados con tipos.
+
+## Decisiones técnicas y sus justificaciones
 
 ### Ordenación de mensajes:
 - Se ordenan los mensajes para garantizar un procesamiento predecible, lo que simplifica el algoritmo de agrupación.
@@ -67,3 +70,38 @@ Cada mensaje tiene las siguientes propiedades:
 1. Clona este repositorio en tu máquina local:
    ```bash
    git clone https://github.com/tu-usuario/ai-messaging-viewer.git
+Accede al directorio del proyecto:
+
+bash
+Copiar
+Editar
+cd ai-messaging-viewer
+Instala las dependencias utilizando npm o yarn, según tu preferencia:
+
+Con npm:
+
+bash
+Copiar
+Editar
+npm install
+Con yarn:
+
+bash
+Copiar
+Editar
+yarn install
+3. Ejecutar el servidor de desarrollo
+Una vez instaladas las dependencias, puedes iniciar el servidor de desarrollo. Esto abrirá el proyecto en un servidor local y podrás ver los cambios reflejados en tiempo real.
+
+Con npm:
+
+bash
+Copiar
+Editar
+npm run dev
+Con yarn:
+
+bash
+Copiar
+Editar
+yarn dev
