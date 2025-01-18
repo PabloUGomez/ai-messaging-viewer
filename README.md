@@ -68,40 +68,20 @@ Cada mensaje tiene las siguientes propiedades:
 ## Instalación
 
 1. Clona este repositorio en tu máquina local:
-   ```bash
-   git clone https://github.com/tu-usuario/ai-messaging-viewer.git
-Accede al directorio del proyecto:
+    ```bash
+    git clone https://github.com/tu-usuario/ai-messaging-viewer.git
+    ```
+2. Accede al directorio del proyecto:
+    ```bash
+    cd ai-messaging-viewer
+    ```
+3. Instala las dependencias necesarias:
+    ```bash
+    npm install
+    ```
+4. Inicia la aplicación:
+    ```bash
+    npm run dev
+    ```
 
-bash
-Copiar
-Editar
-cd ai-messaging-viewer
-Instala las dependencias utilizando npm o yarn, según tu preferencia:
 
-Con npm:
-
-bash
-Copiar
-Editar
-npm install
-Con yarn:
-
-bash
-Copiar
-Editar
-yarn install
-3. Ejecutar el servidor de desarrollo
-Una vez instaladas las dependencias, puedes iniciar el servidor de desarrollo. Esto abrirá el proyecto en un servidor local y podrás ver los cambios reflejados en tiempo real.
-
-Con npm:
-
-bash
-Copiar
-Editar
-npm run dev
-Con yarn:
-
-bash
-Copiar
-Editar
-yarn dev
